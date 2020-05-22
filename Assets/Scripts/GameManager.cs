@@ -16,10 +16,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // start y for loop here
-        for (float z = 0; z < 5; z = z + 1)
+        for (float z = 0; z < 6; z++)
         {
             float zlocation = ((float)z * 2.5f) + 4f;
-            //
             for (float x = 0; x < 5; x = x + 1)
 
             {
@@ -28,16 +27,21 @@ public class GameManager : MonoBehaviour
             }
 
         }
+    }
+
+
+
+        public float brickcount = (30);
+        
+
+
+
         /* {
              float xlocation = ((float)x * 2.5f) + -5.3f;
              Instantiate(brick, new Vector3(xlocation, 0.5f, 9), brick.transform.rotation);
          }*/
 
-        // finish y for loop here
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    // finish y for loop here
 }
+// Update is called once per frame
+
