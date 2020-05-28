@@ -8,6 +8,10 @@ TagManager:
   - Brick
   - Button
   - BottomWall
+  - OtherWall
+  - Paddle
+  - LeftWall
+  - RightWall
   layers:
   - Default
   - TransparentFX

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class YouWinButton : MonoBehaviour
+public class StartButton : MonoBehaviour
 {
     public void changemenuscene()
     {
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("EnterName", LoadSceneMode.Single);
 
 
     }
 }
+
+
+   

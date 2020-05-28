@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class PaddleMovement : MonoBehaviour
 {
-    public float speed;
+    public float speed = 8;
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class PaddleMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector3 movement = new Vector3(moveHorizontal * .2f + transform.position.x, transform.position.y, transform.position.z);
         transform.position = movement;
-
+        
     }
 
 

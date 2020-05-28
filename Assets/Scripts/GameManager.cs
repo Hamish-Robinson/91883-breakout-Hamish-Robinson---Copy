@@ -5,11 +5,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
-
+    public Text scoreText;
+    public int score;
     public GameObject brick;
+    private float brickcount = 30;
+    private int winCount;
 
 
     // Start is called before the first frame update
@@ -25,23 +31,55 @@ public class GameManager : MonoBehaviour
                 float xlocation = ((float)x * 2.5f) - 5f;
                 Instantiate(brick, new Vector3(xlocation, 0.2f, zlocation), brick.transform.rotation);
             }
-
         }
+        score = 0;
+       
+
     }
 
+   
+    public void BrickCollision()
+    {
+        print(brickcount);
+       
+            brickcount = brickcount - 1;
+            score = score + 1;
+            scoreText.text = "score:" + score.ToString();
+        
+        if (brickcount <= 0)
+        {
+            winCount = winCount + 1;
+            if (winCount <= 2)
+            {
+                SceneManager.LoadScene("YouWin", LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadScene("God", LoadSceneMode.Single);
+            }
+
+        }
+       
+
+    }
+   
+}
 
 
-        public float brickcount = (30);
+
+
+   
+
         
 
 
 
-        /* {
-             float xlocation = ((float)x * 2.5f) + -5.3f;
-             Instantiate(brick, new Vector3(xlocation, 0.5f, 9), brick.transform.rotation);
-         }*/
+    /* {
+         float xlocation = ((float)x * 2.5f) + -5.3f;
+         Instantiate(brick, new Vector3(xlocation, 0.5f, 9), brick.transform.rotation);
+     }*/
 
     // finish y for loop here
-}
+
 // Update is called once per frame
 

@@ -24,36 +24,41 @@ public class BallMovement : MonoBehaviour
 
     void myStart()
     {
-        print("pancake");
-        
-
-        float moveHorizontal = 1; // Store the initial ball horizontal movement
-        float moveVertical = 1; // Store the initial ball veritcal movement
+        float moveHorizontal = 4.1349824f; // Store the initial ball horizontal movement
+        float moveVertical = 15; // Store the initial ball veritcal movement
 
         Vector3 movement = new Vector3(-moveHorizontal, 0, moveVertical); // create a vector3 to store the balls initial movement.
         rb.AddForce(movement); // use the vector to give the ball some force
-
-        // void OnCollisionEnter(Collision other)
-        {
-            //  if (other.gameObject.tag == "Brick")
-            {
-                //     brickcount = brickcount - 1;
-            }
-            // if (brickcount <= 0)
-            {
-                //    SceneManager.LoadScene("YouWin", LoadSceneMode.Single);
-            }
-        }
+        // Update is called once per frame
     }
-    // Update is called once per frame
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Brick")
+        {
+            brickcount = brickcount - 1;          
+        }
+        if (brickcount <= 0)
+        {
+            SceneManager.LoadScene("YouWin", LoadSceneMode.Single);
+        }
+        if (other.gameObject.tag == "LeftWall" || other.gameObject.tag == "RightWall" || other.gameObject.tag == "Brick" || other.gameObject.tag == "Paddle")
+        {
+            speed = speed + 0.3f;
+            
+        }
+      
+        
+
+    }
+
     void FixedUpdate()
     {
         rb.velocity = speed * (rb.velocity.normalized);
         // set the balls speed at a constant speed every frame by 
         // normalizing the direction vector (create a vector length of 1) and multiple by speed.
     }
-
 }
+
 
 
 
